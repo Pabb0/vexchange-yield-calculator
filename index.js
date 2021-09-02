@@ -11,6 +11,7 @@ import CoinGecko from 'coingecko-api';
 import dfd from 'danfojs-node'
 import pkg from 'nodeplotlib';
 const { plot } = pkg;
+import info from './info.json'
 
 
 const net = new SimpleNet("http://45.32.212.120:8669/");
@@ -72,10 +73,9 @@ const getPrice = async () => {
 
 
 const reserves = await getAllReserves(connex, allTokens)
-console.log(reserves)
 const liquidityTokens = await getAllLiquidityTokens(connex, web3, allTokens)
 
-const myLiquidity = 59300 // VET-VTHO
+const myLiquidity = info['VeChain Thor']['Pool Tokens'] // VET-VTHO
 
 const poolPercentage = myLiquidity / liquidityTokens.get('VeChain Thor')
 
@@ -88,7 +88,11 @@ const amountOfVtho = totalVthoAmount * poolPercentage
 console.log(`You have ${amountOfVet} amount of VET and ${amountOfVtho} amount of VTHO`)
 
 const df = await dfd.read_csv('./data/VET-VTHO-data.csv')
-const startDate = new Date(2021, 7, 29) // Month index starts at 0
+
+const startDate = new Date(
+	info['VeChain Thor']['Start Date']['year'], 
+	info['VeChain Thor']['Start Date']['month'] - 1,
+	info['VeChain Thor']['Start Date']['day']) // Month index starts at 0
 const dateNow = Date.now()
 const elapsed = dateNow - startDate.getTime()
 const daysSince = Math.round(elapsed / (1000 * 3600 * 24));
