@@ -1,4 +1,4 @@
-# vexchange-yield-calculator
+# Vexchange Yield Calculator
 
 Starting project to get some practice with the Vexchange SDK.
 
@@ -15,4 +15,7 @@ This project tracks the APY of the following tokens (in an LP with VET):
 - Run the following commands in the terminal
   - npm install
   - npm run-script run
+
+## WIP
+- Add an run-script first-time to initialise everything
 
