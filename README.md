@@ -9,13 +9,17 @@ This project tracks the APY of the following tokens (in an LP with VET):
   - VIMworld
   - VPunks Token
 
-## How to run
+## How to run for the first time
 - Add your info to [initial JSON file](info.json)
-- Initialise the CSV file in the data folder (have at least 1 row initialised)
+  - For every token you can set the amount of LP tokens you have (check [Vexchange](vexchange.io) for this) (or just leave it at 1000 if you just want to see the APY)
+  - For every token you need to set the start date (day, month and year)
 - Run the following commands in the terminal
   - npm install
+  - npm run-script first
   - npm run-script run
 
-## WIP
-- Add an run-script first-time to initialise everything
+## Next runs
+- npm run-script run
+
+
 
