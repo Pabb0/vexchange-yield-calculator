@@ -71,6 +71,7 @@ await Promise.all(allTokens.map( async (value) => {
 	
 }))
 
+
 const layout = {
 	title: 'APY', 
  	showlegend: true, 
