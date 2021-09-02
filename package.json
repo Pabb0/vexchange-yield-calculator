@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "npm test",
-    "run": "node --experimental-json-modules index.js"
+    "run": "node --experimental-json-modules index.js",
+    "first": "node --experimental-json-modules first.js"
   },
   "author": "",
   "license": "ISC",
