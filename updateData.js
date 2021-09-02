@@ -21,7 +21,7 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
     
     const dateNow = Date.now()
     const elapsed = dateNow - startDate.getTime()
-    const daysSince = Math.round(elapsed / (1000 * 3600 * 24));
+    const daysSince = Math.floor(elapsed / (1000 * 3600 * 24));
 
     const vthoPerVetPerDay = 0.000432
 
@@ -45,8 +45,11 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
         console.log(`[CONCLUSION] Using Vexchange you earned €${earningsNow-earningsInitialAmount} more than by hodling`)
     }
 
-    const APY = ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince)
-
+    if (daysSince === 0) {
+        const APY = 0
+    } else {
+        const APY = ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince)
+    }
     const newColumn = [[daysSince, amountOfVet, amountOther, APY]]
     let updatedDf = df.append(newColumn)
 
