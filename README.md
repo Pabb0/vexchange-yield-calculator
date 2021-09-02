@@ -2,7 +2,7 @@
 
 Starting project to get some practice with the Vexchange SDK.
 
-This project tracks the APY of the following tokens (in an LP with VET):
+This project tracks the APY of the most popular tokens on Vexchange (in an LP with VET):
   - VeThor Token
   - OceanEx
   - Safe Haven
