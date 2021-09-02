@@ -46,11 +46,8 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
     }
 
 
-    if (daysSince === 0) {
-        const APY = 0
-    } else {
-        const APY = ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince)
-    }
+    const APY = daysSince === 0 ? 0 : ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince) 
+
     const newColumn = [[daysSince, amountOfVet, amountOther, APY]]
     let updatedDf = df.append(newColumn)
 
