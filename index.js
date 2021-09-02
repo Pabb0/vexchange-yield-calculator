@@ -69,7 +69,6 @@ await Promise.all(allTokens.map( async (value) => {
 
 	dataArray.push(data);
 	
-	
 }))
 
 const layout = {
