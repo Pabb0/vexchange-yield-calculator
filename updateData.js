@@ -27,16 +27,24 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
 
     const prices = await getPrice()
     
-    const priceOfVet = prices.data.vechain.usd 
+    const priceOfVet = prices.data.vechain.eur 
     const priceOfOther = priceOfVet * totalVetAmount/totalOtherAmount
     const priceOfVtho = priceOfVet * reserves.get('VeChain Thor').get('Wrapped VET') / reserves.get('VeChain Thor').get('VeChain Thor')
 
     const [initialAmountOfVet, initialAmountOfOther] = df.loc({ rows:[0], columns: ['VET', tokenName]}).data[0]
 
     const vthoGeneration = initialAmountOfVet * vthoPerVetPerDay * daysSince
-    const earningsInitialAmount = (initialAmountOfVet * priceOfVet) + (vthoGeneration * priceOfVtho) + (initialAmountOfOther * priceOfOther)
     
+    const earningsInitialAmount = (initialAmountOfVet * priceOfVet) + (vthoGeneration * priceOfVtho) + (initialAmountOfOther * priceOfOther)
     const earningsNow = amountOfVet * priceOfVet + amountOther * priceOfOther
+    
+    if (tokenName == 'VeChain Thor') {
+        console.log('---COMPARISON BETWEEN USING VEXCHANGE AND HODLING---')
+        console.log(`[VEXCHANGE]  Earnings: €${earningsNow}`)
+        console.log(`[HODLING]    Earnings: €${earningsInitialAmount}`)
+        console.log(`[CONCLUSION] Using Vexchange you earned €${earningsNow-earningsInitialAmount} more than by hodling`)
+    }
+
     const APY = ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince)
 
     const newColumn = [[daysSince, amountOfVet, amountOther, APY]]
