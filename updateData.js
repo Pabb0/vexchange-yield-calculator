@@ -49,7 +49,6 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
     // await updatedDf.to_csv(`./data/${tokenName}.csv`)
 
     const data = {x: x_values, y: y_values, type: 'line', name: `${tokenName} APY`};
-
     return data
 
 }
