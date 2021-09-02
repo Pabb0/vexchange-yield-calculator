@@ -1,4 +1,4 @@
-# vexchange-yield-calculator
+# Vexchange Yield Calculator
 
 Starting project to get some practice with the Vexchange SDK.
 
