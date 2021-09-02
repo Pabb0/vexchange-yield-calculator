@@ -2,7 +2,6 @@ import getPrice from './utils/api/getPrice.js'
 import dfd from 'danfojs-node'
 import info from './info.json'
 
-
 const updateData = async(reserves, liquidityTokens, tokenName) => {
     const myLiquidity = info[tokenName]['Pool Tokens']
     const poolPercentage = myLiquidity / liquidityTokens.get(tokenName)
