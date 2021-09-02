@@ -1,0 +1,33 @@
+{
+  "name": "vexchange-sdk-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npm test",
+    "run": "node --experimental-json-modules index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vechain/connex-driver": "^2.0.5",
+    "@vechain/connex-framework": "^2.0.5",
+    "coingecko-api": "^1.0.10",
+    "danfojs-node": "^0.2.8",
+    "ethereum-block-by-date": "^1.4.2",
+    "ethers": "^5.4.6",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "nodeplotlib": "^0.7.5",
+    "open": "^8.2.1",
+    "thorify": "^1.5.6",
+    "vexchange-sdk": "^1.0.3",
+    "web3": "^1.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2"
+  }
+}
