@@ -1,4 +1,4 @@
-import { Fetcher, WVET } from 'vexchange-sdk';
+import { Fetcher } from 'vexchange-sdk';
 import Web3 from 'web3';
 import { thorify } from 'thorify';
 import { Driver, SimpleNet } from '@vechain/connex-driver';
@@ -10,7 +10,6 @@ import getLiquidityToken from './utils/api/getLiquidityToken.js';
 import pkg from 'nodeplotlib';
 const { plot } = pkg;
 import updateData from './updateData.js';
-import info from './info.json'
 
 
 const net = new SimpleNet("http://45.32.212.120:8669/");
@@ -60,16 +59,8 @@ const getAllLiquidityTokens = async (connex, web3, tokens) => {
 	return liquidityTokens;
 }
 
-
-
-
-
-
 const reserves = await getAllReserves(connex, allTokens)
 const liquidityTokens = await getAllLiquidityTokens(connex, web3, allTokens)
-
-console.log(reserves)
-console.log(liquidityTokens)
 
 const dataArray = []
 await Promise.all(allTokens.map( async (value) => {
@@ -80,9 +71,6 @@ await Promise.all(allTokens.map( async (value) => {
 	
 	
 }))
-
-
-console.log(dataArray)
 
 const layout = {
 	title: 'APY', 

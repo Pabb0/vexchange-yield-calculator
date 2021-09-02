@@ -1,5 +1,4 @@
 import { WVET, Fetcher} from 'vexchange-sdk';
-import Big from 'big.js';
 import PairABI from '../abis/IVexchangeV2Pair.json'
 
 const weiToEth = b => b / BigInt(1000000000000000000);
