@@ -45,6 +45,7 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
         console.log(`[CONCLUSION] Using Vexchange you earned €${earningsNow-earningsInitialAmount} more than by hodling`)
     }
 
+
     if (daysSince === 0) {
         const APY = 0
     } else {
@@ -56,7 +57,7 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
     const x_values = updatedDf.loc({columns: ['Days passed']}).col_data[0]
     const y_values = updatedDf.loc({columns: ['APY']}).col_data[0]
 
-    // await updatedDf.to_csv(`./data/${tokenName}.csv`)
+    await updatedDf.to_csv(`./data/${tokenName}.csv`)
     const data = {x: x_values, y: y_values, type: 'line', name: `${tokenName} APY`};
     
     return data
