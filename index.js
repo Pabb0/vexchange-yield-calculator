@@ -73,7 +73,7 @@ await Promise.all(allTokens.map( async (value) => {
 
 
 const layout = {
-	title: 'APY', 
+	title: 'APY of the most popular LP\'s on Vexchange', 
  	showlegend: true, 
  	xaxis: {
  		title: 'Days Since'
