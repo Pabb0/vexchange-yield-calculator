@@ -53,5 +53,4 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
     return data
 
 }
-
 export default updateData;
