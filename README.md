@@ -16,3 +16,6 @@ This project tracks the APY of the following tokens (in an LP with VET):
   - npm install
   - npm run-script run
 
+## WIP
+- Add an run-script first-time to initialise everything
+
