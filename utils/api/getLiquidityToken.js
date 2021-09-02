@@ -10,9 +10,9 @@ const getLiquidityToken = async (connex, web3, address) => {
 	const pair = await Fetcher.fetchPairData(wvet, token, connex);
 
 	const pairContract = new web3.eth.Contract(PairABI.abi, pair.liquidityToken.address); 
-    const lpAmount = await pairContract.methods.totalSupply().call()
-	
-	return parseFloat(weiToEth(BigInt(lpAmount)))
+    const lpAmount = await pairContract.methods.totalSupply().call();
+
+	return parseFloat(weiToEth(BigInt(lpAmount)));
 };
     
 export default getLiquidityToken
