@@ -21,5 +21,8 @@ This project tracks the APY of the most popular tokens on Vexchange (in an LP wi
 ## Next runs
 - npm run-script run
 
+## Disclaimer
+This project is not affiliated with the Vexchange team. It was purely built for fun.
+
 
 
