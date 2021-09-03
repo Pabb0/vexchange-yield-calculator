@@ -81,3 +81,5 @@ const layout = {
 }
 
 plot(dataArray, layout)
+
+setTimeout(() => process.exit(0), 5000)
