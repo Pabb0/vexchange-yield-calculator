@@ -48,6 +48,13 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
 
     const APY = daysSince === 0 ? 0 : ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince) 
 
+    const nbOfRows = df.shape[0]
+    const lastDaysSince = df.values[nbOfRows - 1][0]
+    
+    if (lastDaysSince === daysSince) {
+        df.drop({ index: [nbOfRows - 1], axis: 0, inplace: true })
+
+    }
     const newColumn = [[daysSince, amountOfVet, amountOther, APY]]
     let updatedDf = df.append(newColumn)
 
@@ -56,7 +63,7 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
 
     await updatedDf.to_csv(`./data/${tokenName}.csv`)
     const data = {x: x_values, y: y_values, type: 'line', name: `${tokenName} APY`};
-    
+
     return data
 
 }
