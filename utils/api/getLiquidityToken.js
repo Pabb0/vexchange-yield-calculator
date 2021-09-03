@@ -1,7 +1,8 @@
 import { WVET, Fetcher} from 'vexchange-sdk';
 import PairABI from '../abis/IVexchangeV2Pair.json'
+import Big from 'big.js';
 
-const weiToEth = b => b / BigInt(1000000000000000000);
+const weiToEth = b => b.div(Big("1000000000000000000"));
 
 
 const getLiquidityToken = async (connex, web3, address) => {
@@ -12,7 +13,7 @@ const getLiquidityToken = async (connex, web3, address) => {
 	const pairContract = new web3.eth.Contract(PairABI.abi, pair.liquidityToken.address); 
     const lpAmount = await pairContract.methods.totalSupply().call();
 
-	return parseFloat(weiToEth(BigInt(lpAmount)));
+	return parseFloat(weiToEth(Big(lpAmount)));
 };
     
 export default getLiquidityToken
