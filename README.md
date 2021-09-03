@@ -21,6 +21,7 @@ npm install
 npm run-script first
 npm run-script run
 ```
+After running the script, a HTML page will open showing the forecasted APY's.
 
 ## Next runs
 ```
