@@ -27,7 +27,7 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
 
     const prices = await getPrice()
     
-    const priceOfVet = prices.data.vechain.eur 
+    const priceOfVet = prices.data.vechain.usd 
     const priceOfOther = priceOfVet * totalVetAmount/totalOtherAmount
     const priceOfVtho = priceOfVet * reserves.get('VeChain Thor').get('Wrapped VET') / reserves.get('VeChain Thor').get('VeChain Thor')
 
@@ -37,14 +37,6 @@ const updateData = async(reserves, liquidityTokens, tokenName) => {
     
     const earningsInitialAmount = (initialAmountOfVet * priceOfVet) + (vthoGeneration * priceOfVtho) + (initialAmountOfOther * priceOfOther)
     const earningsNow = amountOfVet * priceOfVet + amountOther * priceOfOther
-    
-    if (tokenName == 'VeChain Thor') {
-        console.log('---COMPARISON BETWEEN USING VEXCHANGE AND HODLING---')
-        console.log(`[VEXCHANGE]  Earnings: €${earningsNow}`)
-        console.log(`[HODLING]    Earnings: €${earningsInitialAmount}`)
-        console.log(`[CONCLUSION] Using Vexchange you earned €${earningsNow-earningsInitialAmount} more than by hodling`)
-    }
-
 
     const APY = daysSince === 0 ? 0 : ((earningsNow / earningsInitialAmount) - 1) * (365 / daysSince) 
 

@@ -5,7 +5,7 @@ const getPrice = async () => {
 	return CoinGeckoClient.simple.price(
 		{
 			ids: ['vechain'],
-			vs_currencies: ['eur'],
+			vs_currencies: ['usd'],
 	});
 }
 
